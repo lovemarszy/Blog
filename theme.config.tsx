@@ -11,7 +11,7 @@ export default {
           CC BY-NC-SA 4.0
         </abbr>{' '}
         <time>{YEAR}</time> © Marszy.
-        <a href="/feed.xml">RSS</a>
+        <a href="loveur.life/feed.xml">RSS</a>
       </small>
       <style jsx>{`
         footer {
