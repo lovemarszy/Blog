@@ -1,8 +1,22 @@
+import CustomHead from '#components/custom-head'
+import Link from 'next/link'
+import { FaRss } from 'react-icons/fa'  // 只保留 RSS 图标
+
 const YEAR = new Date().getFullYear()
 
-export default {
+const NextraThemeConfig = {
+  head: CustomHead,
+
+  dateFormatter: (date: Date) => `${date.toDateString()}`,
+
   footer: (
-    <footer>
+    <div>
+      <hr />
+      <div className="grid auto-cols-min grid-flow-col gap-8 text-xl ss:gap-4">
+        <Link href="/feed.xml" target="_blank" rel="noreferrer" aria-label="RSS" className="">
+          <FaRss />
+        </Link>
+      </div>
       <small className="mt-32 block text-p-light dark:text-inherit">
         <abbr
           title="This site and all its content are licensed under a Attribution-NonCommercial-ShareAlike 4.0 International License."
@@ -11,16 +25,10 @@ export default {
           CC BY-NC-SA 4.0
         </abbr>{' '}
         <time>{YEAR}</time> © Marszy.
-        <a href="loveur.life/feed.xml">RSS</a>
+        <div className="float-right">[ Marszy ]</div>
       </small>
-      <style jsx>{`
-        footer {
-          margin-top: 8rem;
-        }
-        a {
-          float: right;
-        }
-      `}</style>
-    </footer>
+    </div>
   ),
 }
+
+export default NextraThemeConfig
