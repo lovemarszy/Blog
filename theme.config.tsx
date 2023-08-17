@@ -13,7 +13,7 @@ const NextraThemeConfig = {
     <div>
       <hr />
       <div className="grid auto-cols-min grid-flow-col gap-8 text-xl ss:gap-4">
-        <Link href="/feed.xml" target="_blank" rel="noreferrer" aria-label="RSS" className="">
+        <Link href="https://loveur.life/feed.xml" target="_blank" rel="noreferrer" aria-label="RSS" className="">
           <FaRss />
         </Link>
       </div>
