@@ -35,7 +35,7 @@ const Photo = ({ Title }: Props) => {
         )
       })}
       <div className="pt-2 text-center text-sm">
-        <p>Copyright © {Year} Aozaki All rights reserved.</p>
+        <p>Copyright © {Year} Marszy All rights reserved.</p>
         <p>[ DO NOT REPOST ]</p>
         <p>
           For other photo works, please <Link href={Url}>Click HERE</Link>
