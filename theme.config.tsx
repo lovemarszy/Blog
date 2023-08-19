@@ -7,7 +7,7 @@ const YEAR = new Date().getFullYear()
 
 const NextraThemeConfig = {
   head: CustomHead,
-  dateFormatter: (date) => `${date.toDateString()}`,
+  dateFormatter: (date: Date) => `${date.toDateString()}`,
   footer: (
     <div>
       <hr />
