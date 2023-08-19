@@ -45,7 +45,7 @@ const NextraThemeConfig = {
           CC BY-NC-SA 4.0
         </abbr>{' '}
         <time>{YEAR}</time> © Marszy.
-        <div className="float-right">[ Built with love ]</div>
+        <div className="float-right">[Built with love]</div>
       </small>
     </div>
   ),
