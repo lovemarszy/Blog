@@ -4,7 +4,7 @@
         <description><![CDATA[Marszy's Blog]]></description>
         <link>https://loveur.life</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 17 Aug 2023 12:01:16 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 27 Aug 2023 09:06:30 GMT</lastBuildDate>
         <atom:link href="https://loveur.life/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[伴着星辰入梦]]></title>
@@ -37,6 +37,14 @@
             <guid isPermaLink="true">/posts/Arrogance</guid>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Wed, 08 Mar 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[做有趣的人，做一个好人]]></title>
+            <description><![CDATA[好好生活:)]]></description>
+            <link>/posts/BeEngaging</link>
+            <guid isPermaLink="true">/posts/BeEngaging</guid>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Sat, 26 Aug 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[碎碎念·一]]></title>
