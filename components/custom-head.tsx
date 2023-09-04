@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 const Head = ({ meta }: { meta: { title: string; description: string; image: string } }) => {
   // Site info
-  const Site = `Marszy's blog`
+  const Site = `Marszy's Blog`
   const twitterCard = `https://image.loveur.life/fengmian.png`
 
   // Get router
