@@ -4,7 +4,7 @@
         <description><![CDATA[Marszy's Blog]]></description>
         <link>https://loveur.life</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 14 Sep 2023 07:11:40 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Oct 2023 00:58:59 GMT</lastBuildDate>
         <atom:link href="https://loveur.life/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[伴着星辰入梦]]></title>
@@ -93,6 +93,14 @@
             <guid isPermaLink="true">/posts/SeeYou</guid>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Sun, 18 Jun 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[翀·二]]></title>
+            <description><![CDATA[我也不知道还有什么能让我走下去]]></description>
+            <link>/posts/Struggle</link>
+            <guid isPermaLink="true">/posts/Struggle</guid>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Sat, 16 Sep 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[这里是存放奇思妙想的地方]]></title>
