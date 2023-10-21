@@ -13,7 +13,7 @@ const NextraThemeConfig = {
       <hr />
       <div className="grid auto-cols-min grid-flow-col gap-8 text-xl ss:gap-4">
         <a
-          href="mailto:marszybox@gmail.com"
+          href="mailto:marszybox@proton.me"
           target="_blank"
           rel="noreferrer"
           aria-label="Email"
