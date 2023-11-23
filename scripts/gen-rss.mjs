@@ -13,8 +13,8 @@ async function generate() {
   try {
     const feed = new RSS({
       title: "Marszy's Blog",
-      site_url: 'https://loveur.life',
-      feed_url: 'https://loveur.life/feed.xml',
+      site_url: 'https://blog.loveur.life',
+      feed_url: 'https://blog.loveur.life/feed.xml',
     })
 
     const dirPath = join('./pages/posts')

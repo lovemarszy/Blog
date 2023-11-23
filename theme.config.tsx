@@ -26,17 +26,15 @@ const NextraThemeConfig = {
         </Link>
       </div>
       <small className="mt-32 block text-p-light dark:text-inherit">
+        <div>
+          Modified from ⁣⁣⁣⁣
+          <a href="https://github.com/aozaki-kuro/aozaki-next-blog" target="_blank" rel="noreferrer">Aozaki ⁣⁣⁣⁣</a>
+        </div>
         <abbr
-          title="This site and all its content are licensed under a Attribution-NonCommercial-ShareAlike 4.0 International License."
+          title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
           className="cursor-help"
         >
-          <a
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            CC BY-NC-SA 4.0
-          </a>
+          CC BY-NC-SA 4.0
         </abbr>{' '}
         <time>{YEAR}</time> © Marszy
         <div className="float-right">[ Built with love ]</div>

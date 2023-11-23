@@ -8,7 +8,7 @@ const Analytics = () => {
   return (
     <Script
       strategy="afterInteractive"
-      data-domain="loveur.life"
+      data-domain="blog.loveur.life"
     />
   )
 }

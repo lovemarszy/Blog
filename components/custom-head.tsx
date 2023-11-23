@@ -8,7 +8,7 @@ const Head = ({ meta }: { meta: { title: string; description: string; image: str
   // Get router
   const router = useRouter()
   const canonicalUrl = (
-    `https://loveur.life` + (router.asPath === '/' ? '' : router.asPath)
+    `https://blog.loveur.life` + (router.asPath === '/' ? '' : router.asPath)
   ).split('?')[0]
 
   // Get Current Title

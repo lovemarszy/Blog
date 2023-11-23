@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://loveur.life
+Host: https://blog.loveur.life
 
 # Sitemaps
-Sitemap: https://loveur.life/sitemap.xml
+Sitemap: https://blog.loveur.life/sitemap.xml

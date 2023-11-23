@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://loveur.life',
+  siteUrl: 'https://blog.loveur.life',
   generateRobotsTxt: true,
   autoLastmod: true,
   generateIndexSitemap: true,
