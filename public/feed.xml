@@ -4,8 +4,16 @@
         <description><![CDATA[Marszy's Blog]]></description>
         <link>https://blog.loveur.life</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Dec 2023 07:32:58 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Dec 2023 14:29:25 GMT</lastBuildDate>
         <atom:link href="https://blog.loveur.life/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[2023年度总结]]></title>
+            <description><![CDATA[往前走，不要回头]]></description>
+            <link>/posts/2023</link>
+            <guid isPermaLink="true">/posts/2023</guid>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Sat, 30 Dec 2023 16:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[伴着星辰入梦]]></title>
             <description><![CDATA[祝我生日快乐]]></description>
