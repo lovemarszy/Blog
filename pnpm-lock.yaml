@@ -59,10 +59,10 @@ devDependencies:
     specifier: ^18.2.7
     version: 18.2.18
   '@typescript-eslint/eslint-plugin':
-    specifier: ^6.21.0
+    specifier: ^6.4.0
     version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.1)(typescript@5.3.3)
   '@typescript-eslint/parser':
-    specifier: ^6.21.0
+    specifier: ^6.4.0
     version: 6.21.0(eslint@8.57.1)(typescript@5.3.3)
   eslint:
     specifier: 8.57.1
