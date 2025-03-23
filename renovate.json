@@ -1,36 +1,32 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
-  "extends": ["config:base"],
-
+  "extends": ["config:recommended"],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
     "automergeType": "pr",
     "platformAutomerge": true
   },
-
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["eslint"],
       "groupName": "ESLint and plugins",
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": ["/eslint/"]
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["prettier"],
       "groupName": "Prettier and plugins",
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": ["/prettier/"]
     },
     {
-      "matchPackagePatterns": ["nextra"],
       "groupName": "Nextra",
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": ["/nextra/"]
     },
     {
-      "matchPackageNames": ["^next(?!ra)$"],
-      "excludePackageNames": ["^nextra$"],
+      "matchPackageNames": ["^next(?!ra)$", "!^nextra$"],
       "groupName": "Next.js",
       "automerge": true
     },
