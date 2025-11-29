@@ -8,64 +8,34 @@ const withNextra = nextra({
 })
 
 const securityHeaders = [
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
-  {
-    key: 'Referrer-Policy',
-    value: 'strict-origin-when-cross-origin',
-  },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-  {
-    key: 'X-Frame-Options',
-    value: 'DENY',
-  },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
-  {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
-  },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
-  {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
-  },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
-  {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=31536000; includeSubDomains',
-  },
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
-  {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=()',
-  },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'X-DNS-Prefetch-Control', value: 'on' },
+  { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' },
+  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
 ]
 
 export default withNextra({
   reactStrictMode: true,
   cleanDistDir: true,
-
-  // Image Loaders
   images: {
-    domains: ['image.loveur.life'],
-    unoptimized: true,
+    // ✅ 优化：使用新版配置，开启 Vercel 图片优化
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'image.loveur.life',
+        pathname: '/**',
+      },
+    ],
   },
-
-  // Ignore Lint during Build
   eslint: {
+    // 忽略构建时的 Lint 错误，防止部署失败
     ignoreDuringBuilds: true,
   },
-
-  // Security Headers
   async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
+    return [{ source: '/(.*)', headers: securityHeaders }]
   },
-
-  // Fix Routing by Redirecting
   async redirects() {
     return [
       {
@@ -73,26 +43,10 @@ export default withNextra({
         destination: '/posts/kanaut-nishe-merch',
         permanent: true,
       },
-      {
-        source: '/blog/:slug*',
-        destination: '/posts/:slug*',
-        permanent: true,
-      },
-      {
-        source: '/portfoilo/:slug*',
-        destination: '/photography/:slug*',
-        permanent: true,
-      },
-      {
-        source: '/about',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/desk-new-layout',
-        destination: '/posts/new-desktop-layout',
-        permanent: true,
-      },
+      { source: '/blog/:slug*', destination: '/posts/:slug*', permanent: true },
+      { source: '/portfoilo/:slug*', destination: '/photography/:slug*', permanent: true },
+      { source: '/about', destination: '/', permanent: true },
+      { source: '/desk-new-layout', destination: '/posts/new-desktop-layout', permanent: true },
       {
         source: '/bladerunner-revisit',
         destination: '/posts/bladerunner-revisit',

@@ -1,3 +1,5 @@
+import React from 'react'
+import type { NextraBlogTheme } from 'nextra-theme-blog'
 import CustomHead from '#components/custom-head'
 import Link from 'next/link'
 import { FaRss } from 'react-icons/fa'
@@ -5,9 +7,10 @@ import { MdEmail } from 'react-icons/md'
 
 const YEAR = new Date().getFullYear()
 
-const NextraThemeConfig = {
+const config: NextraBlogTheme = {
   head: CustomHead,
-  dateFormatter: (date: Date) => `${date.toDateString()}`,
+  dateFormatter: (date: Date) =>
+    date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
   footer: (
     <div>
       <hr />
@@ -15,24 +18,37 @@ const NextraThemeConfig = {
         <a
           href="mailto:marszy@loveur.life"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           aria-label="Email"
-          className=""
+          className="transition-colors hover:text-gray-600"
         >
           <MdEmail />
         </a>
-        <Link href="/feed.xml" target="_blank" rel="noreferrer" aria-label="RSS" className="">
+        <Link
+          href="/feed.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="RSS"
+          className="transition-colors hover:text-gray-600"
+        >
           <FaRss />
         </Link>
       </div>
       <small className="mt-32 block text-p-light dark:text-inherit">
-        <div>
-          Modified from ⁣⁣⁣⁣
-          <a href="https://github.com/aozaki-kuro/aozaki-next-blog" target="_blank" rel="noreferrer">Aozaki ⁣⁣⁣⁣</a>
+        <div className="mb-2">
+          Modified from{' '}
+          <a
+            href="https://github.com/aozaki-kuro/aozaki-next-blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            Aozaki
+          </a>
         </div>
         <abbr
-          title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
-          className="cursor-help"
+          title="CC BY-NC-SA 4.0"
+          className="cursor-help underline decoration-dotted underline-offset-4"
         >
           CC BY-NC-SA 4.0
         </abbr>{' '}
@@ -41,6 +57,7 @@ const NextraThemeConfig = {
       </small>
     </div>
   ),
+  readMore: 'Read More →',
 }
 
-export default NextraThemeConfig
+export default config

@@ -4,7 +4,7 @@ export default {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    'theme.config.tsx',
+    './theme.config.tsx',
   ],
   darkMode: 'class',
   theme: {
@@ -40,5 +40,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), // ✅ 关键新增
+  ],
 } satisfies Config

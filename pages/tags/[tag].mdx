@@ -1,0 +1,73 @@
+---
+type: page
+---
+
+import Head from 'next/head'
+import Link from 'next/link'
+import { getAllPosts, getAllTags } from '../../lib/posts'
+
+export const getStaticPaths = async () => {
+  const tags = getAllTags()
+  
+  const paths = tags.map(tag => ({
+    params: { tag }
+  }))
+
+return { paths, fallback: false }
+}
+
+export const getStaticProps = async ({ params }) => {
+  const allPosts = getAllPosts()
+  const filteredPosts = allPosts.filter(post => post.tags.includes(params.tag))
+
+return {
+props: {
+tag: params.tag,
+posts: filteredPosts
+}
+}
+}
+
+export default function TagPage({ tag, posts }) {
+  const title = `标签: ${tag}`
+  
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      
+      {/* ✅ 新增：Back 按钮 (只添加了这个部分) */}
+      <div className="mb-8">
+        <Link 
+          href="/tags" 
+          className="!no-underline text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors cursor-pointer text-sm font-medium"
+        >
+          ← Back to Tags
+        </Link>
+      </div>
+      
+      {/* 下面是你原始的代码，完全未动 */}
+      <h1 className="text-4xl font-bold mb-8 tracking-tight">{title}</h1>
+
+      <div className="mt-8 space-y-8">
+        {posts.map(post => (
+          <div key={post.slug} className="group">
+            <h3 className="text-xl font-bold mb-2">
+              <Link href={`/posts/${post.slug}`} className="no-underline hover:underline decoration-2 underline-offset-4 decoration-gray-400">
+                {post.title}
+              </Link>
+            </h3>
+            <div className="text-sm text-gray-500 mb-2">
+              {post.date && new Date(post.date).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              {post.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </>
+
+)
+}

@@ -4,85 +4,78 @@
         <description><![CDATA[Marszy's Blog]]></description>
         <link>https://blog.loveur.life</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 25 Mar 2025 02:50:58 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 29 Nov 2025 07:09:51 GMT</lastBuildDate>
         <atom:link href="https://blog.loveur.life/feed.xml" rel="self" type="application/rss+xml"/>
+        <language><![CDATA[zh-CN]]></language>
         <item>
             <title><![CDATA[2023年度总结]]></title>
             <description><![CDATA[往前走，不要回头]]></description>
             <link>/posts/2023</link>
             <guid isPermaLink="true">/posts/2023</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Sat, 30 Dec 2023 16:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[伴着星辰入梦]]></title>
-            <description><![CDATA[祝我生日快乐]]></description>
-            <link>/posts/23Birthday</link>
-            <guid isPermaLink="true">/posts/23Birthday</guid>
-            <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Mon, 29 May 2023 16:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[我成长得好慢，你衰老得好快]]></title>
-            <description><![CDATA[我究竟是什么时候开始能够直面至亲们的衰老]]></description>
-            <link>/posts/Aging</link>
-            <guid isPermaLink="true">/posts/Aging</guid>
-            <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Sat, 05 Aug 2023 16:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[于我而言的Apple]]></title>
-            <description><![CDATA[很精致的一款玩具]]></description>
-            <link>/posts/Apple</link>
-            <guid isPermaLink="true">/posts/Apple</guid>
-            <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Mon, 29 May 2023 16:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[我和我的傲慢]]></title>
-            <description><![CDATA[慎己]]></description>
-            <link>/posts/Arrogance</link>
-            <guid isPermaLink="true">/posts/Arrogance</guid>
-            <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Wed, 08 Mar 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[做有趣的人，做一个好人]]></title>
             <description><![CDATA[好好生活:)]]></description>
             <link>/posts/BeEngaging</link>
             <guid isPermaLink="true">/posts/BeEngaging</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Sat, 26 Aug 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[碎碎念·一]]></title>
-            <description><![CDATA[总结的这半年的碎碎念]]></description>
-            <link>/posts/Chatting1</link>
-            <guid isPermaLink="true">/posts/Chatting1</guid>
+            <title><![CDATA[我成长得好慢，你衰老得好快]]></title>
+            <description><![CDATA[我究竟是什么时候开始能够直面至亲们的衰老]]></description>
+            <link>/posts/Aging</link>
+            <guid isPermaLink="true">/posts/Aging</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Wed, 08 Mar 2023 16:00:00 GMT</pubDate>
+            <pubDate>Sat, 05 Aug 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[碎碎念·二]]></title>
             <description><![CDATA[时间过的好快呀]]></description>
             <link>/posts/Chatting2</link>
             <guid isPermaLink="true">/posts/Chatting2</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Thu, 29 Jun 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[捕梦网]]></title>
-            <description><![CDATA[做过的一些奇妙的梦]]></description>
-            <link>/posts/Dreams</link>
-            <guid isPermaLink="true">/posts/Dreams</guid>
+            <title><![CDATA[是再见不是拜拜]]></title>
+            <description><![CDATA[SeeYou]]></description>
+            <link>/posts/SeeYou</link>
+            <guid isPermaLink="true">/posts/SeeYou</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Wed, 26 Apr 2023 16:00:00 GMT</pubDate>
+            <pubDate>Sun, 18 Jun 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[伴着星辰入梦]]></title>
+            <description><![CDATA[祝我生日快乐]]></description>
+            <link>/posts/23Birthday</link>
+            <guid isPermaLink="true">/posts/23Birthday</guid>
+            <category><![CDATA[坐下聊聊]]></category>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Mon, 29 May 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[于我而言的Apple]]></title>
+            <description><![CDATA[很精致的一款玩具]]></description>
+            <link>/posts/Apple</link>
+            <guid isPermaLink="true">/posts/Apple</guid>
+            <category><![CDATA[小玩具]]></category>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Mon, 29 May 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[翀·一]]></title>
             <description><![CDATA[近期的一些生活片段]]></description>
             <link>/posts/life1</link>
             <guid isPermaLink="true">/posts/life1</guid>
+            <category><![CDATA[坐下聊聊]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Sun, 28 May 2023 16:00:00 GMT</pubDate>
         </item>
@@ -91,22 +84,43 @@
             <description><![CDATA[我喜欢的一些诗歌，歌词。]]></description>
             <link>/posts/Poems</link>
             <guid isPermaLink="true">/posts/Poems</guid>
+            <category><![CDATA[书影音]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Fri, 19 May 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[是再见不是拜拜]]></title>
-            <description><![CDATA[SeeYou]]></description>
-            <link>/posts/SeeYou</link>
-            <guid isPermaLink="true">/posts/SeeYou</guid>
+            <title><![CDATA[捕梦网]]></title>
+            <description><![CDATA[做过的一些奇妙的梦]]></description>
+            <link>/posts/Dreams</link>
+            <guid isPermaLink="true">/posts/Dreams</guid>
+            <category><![CDATA[奇思妙想]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
-            <pubDate>Sun, 18 Jun 2023 16:00:00 GMT</pubDate>
+            <pubDate>Wed, 26 Apr 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[我和我的傲慢]]></title>
+            <description><![CDATA[慎己]]></description>
+            <link>/posts/Arrogance</link>
+            <guid isPermaLink="true">/posts/Arrogance</guid>
+            <category><![CDATA[坐下聊聊]]></category>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Wed, 08 Mar 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[碎碎念·一]]></title>
+            <description><![CDATA[总结的这半年的碎碎念]]></description>
+            <link>/posts/Chatting1</link>
+            <guid isPermaLink="true">/posts/Chatting1</guid>
+            <category><![CDATA[坐下聊聊]]></category>
+            <dc:creator><![CDATA[Marszy]]></dc:creator>
+            <pubDate>Wed, 08 Mar 2023 16:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[这里是存放奇思妙想的地方]]></title>
             <description><![CDATA[梦开始的地方]]></description>
             <link>/posts/This_is_my_home</link>
             <guid isPermaLink="true">/posts/This_is_my_home</guid>
+            <category><![CDATA[奇思妙想]]></category>
             <dc:creator><![CDATA[Marszy]]></dc:creator>
             <pubDate>Wed, 08 Feb 2023 16:00:00 GMT</pubDate>
         </item>
