@@ -6,7 +6,11 @@ date: 2023-02-06
 
 # Tags
 
+<br />
+
 这里是我所有标签的索引。
+
+<hr />
 
 export const TagList = () => {
   // 🛠️ 在这里管理你的标签和简介
@@ -31,23 +35,46 @@ export const TagList = () => {
   ]
 
 return (
-<div className="flex flex-col gap-6 mt-8">
-{tags.map((tag) => (
+// 修改 1：删除了 mt-8，消除顶部的额外间距
+<div className="flex flex-col">
+{tags.map((tag, index) => (
 <div 
           key={tag.name} 
-          className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 border-b border-dashed border-gray-200 dark:border-gray-800 pb-4 last:border-0"
+          className="border-b border-gray-200 dark:border-gray-800 last:border-0"
         >
-{/* 左侧：标签链接 */}
-<a
-href={`/tags/${tag.name}`}
-className="text-lg font-medium text-gray-900 dark:text-gray-100 underline decoration-2 underline-offset-4 decoration-gray-300 hover:decoration-gray-600 transition-all shrink-0" >
-{tag.name}
-</a>
+{/_ 修改 2：顶部换行逻辑
+如果是第一项 (index === 0)，不渲染任何 br (0个)
+如果是其他项，渲染两个 br _/}
+{index !== 0 && (
+<>
+<br />
+<br />
+</>
+)}
 
-          {/* 右侧：简介 */}
-          <span className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-            {tag.desc}
-          </span>
+          {/* 内容区域 */}
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+            <a
+              href={`/tags/${tag.name}`}
+              className="text-lg font-medium text-gray-900 dark:text-gray-100 underline decoration-2 underline-offset-4 decoration-gray-300 hover:decoration-gray-600 transition-all shrink-0"
+            >
+              {tag.name}
+            </a>
+
+            <span className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+              {tag.desc}
+            </span>
+          </div>
+
+          {/* 修改 3：底部换行逻辑
+              如果是最后一项 (index === tags.length - 1)，不渲染任何 br (0个)
+              如果是其他项，渲染两个 br */}
+          {index !== tags.length - 1 && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
         </div>
       ))}
     </div>
