@@ -4,14 +4,6 @@ title: Tags
 date: 2023-02-06
 ---
 
-# Tags
-
-<br />
-
-这里是我所有标签的索引。
-
-<hr />
-
 export const TagList = () => {
   // 🛠️ 在这里管理你的标签和简介
   // 注意：name 必须和你文章里写的 tags 完全一致
@@ -35,22 +27,15 @@ export const TagList = () => {
   ]
 
 return (
-// 修改 1：删除了 mt-8，消除顶部的额外间距
 <div className="flex flex-col">
 {tags.map((tag, index) => (
 <div 
           key={tag.name} 
           className="border-b border-gray-200 dark:border-gray-800 last:border-0"
         >
-{/_ 修改 2：顶部换行逻辑
-如果是第一项 (index === 0)，不渲染任何 br (0个)
-如果是其他项，渲染两个 br _/}
-{index !== 0 && (
-<>
+{/* 修改处：顶部统一使用两个换行，不再区分第一项，确保与上方分割线有距离 */}
 <br />
 <br />
-</>
-)}
 
           {/* 内容区域 */}
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
@@ -66,9 +51,7 @@ return (
             </span>
           </div>
 
-          {/* 修改 3：底部换行逻辑
-              如果是最后一项 (index === tags.length - 1)，不渲染任何 br (0个)
-              如果是其他项，渲染两个 br */}
+          {/* 底部换行逻辑：最后一项 0 个（因为它没有底边框），其他项 2 个 */}
           {index !== tags.length - 1 && (
             <>
               <br />
@@ -81,5 +64,15 @@ return (
 
 )
 }
+
+# Tags
+
+<br />
+
+这里是我所有标签的索引。
+
+{/* mt-8 给上方留白，mb-0 强制去除下方空白 */}
+
+<hr className="mb-0 mt-8 border-gray-200 dark:border-gray-800" />
 
 <TagList />
