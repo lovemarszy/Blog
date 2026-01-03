@@ -7,7 +7,7 @@
     "build": "node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
@@ -52,5 +52,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@8.15.9"
+  "packageManager": "pnpm@10.26.2"
 }
