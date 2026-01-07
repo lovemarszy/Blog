@@ -1,62 +1,64 @@
 import { useRouter } from 'next/router'
 
-// ✅ 修复 1：将 meta 的类型改为 Record<string, any>，以匹配 Nextra 的官方定义
 const Head = ({ meta }: { meta: Record<string, any> }) => {
-  // Site info
   const Site = `Marszy's Blog`
-  const twitterCard = `https://image.loveur.life/fengmian.png`
-
-  // Get router
+  const apiBase = 'https://og.loveur.life/api/og'
   const router = useRouter()
+
+  // 1. 对应你文章 Frontmatter 的数据抓取
+  const title = meta.title || 'Untitled'
+  // 描述：对应你的 description 字段
+  const excerpt = meta.description || ''
+  const author = meta.author || 'Marszy'
+  const tag = meta.tag || ''
+
+  // 日期处理：将 2026/01/03 转换为 API 喜欢的 2026-01-03 格式
+  const date = meta.date ? new Date(meta.date).toISOString().split('T')[0] : ''
+
+  // 2. 构建动态 URL 参数
+  const params = new URLSearchParams()
+  params.set('title', title)
+  params.set('site', Site)
+
+  if (excerpt) params.set('excerpt', excerpt)
+  if (author) params.set('author', author)
+  if (tag) params.set('tag', tag)
+  if (date) params.set('date', date)
+
+  // ✅ 核心改进：如果文章有 image 字段，将其传给 OGIS 作为背景图
+  if (meta.image) {
+    params.set('image', meta.image)
+  }
+
+  // 最终生成的封面链接
+  const ogImageUrl = `${apiBase}?${params.toString()}`
+
+  // 3. 页面元数据
+  const currentTitle = meta.title === `About` ? Site : `${title} - ${Site}`
   const canonicalUrl = (
     `https://blog.loveur.life` + (router.asPath === '/' ? '' : router.asPath)
   ).split('?')[0]
 
-  // ✅ 修复 2：安全地获取属性，如果 meta 里没有，就使用空字符串或默认值
-  const metaTitle = meta.title || ''
-  const metaDescription = meta.description || "Marszy's Blog"
-  const metaImage = meta.image || twitterCard
-
-  // Get Current Title
-  const currentTitle = metaTitle === `About` ? Site : `${metaTitle} - ${Site}`
-
   return (
     <>
-      {/* SEO : Traditional */}
-      <meta name="robots" content="noodp" />
       <title>{currentTitle}</title>
       <meta name="title" content={currentTitle} />
-      <meta name="author" content="Marszy" />
-      <meta name="description" content={metaDescription} />
-      <link rel="canonical" href={canonicalUrl} />
+      <meta name="description" content={excerpt} />
 
-      {/* SEO : Opengraph */}
+      {/* Open Graph / Facebook */}
       <meta property="og:title" content={currentTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
+      <meta property="og:description" content={excerpt} />
+      <meta property="og:image" content={ogImageUrl} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={metaImage} />
-      <meta name="og:site_name" content={Site} />
+      <meta property="og:type" content="article" />
 
-      {/* SEO : Twitter Card */}
+      {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:image" content={metaImage} />
+      <meta property="twitter:image" content={ogImageUrl} />
       <meta property="twitter:title" content={currentTitle} />
-      <meta property="twitter:description" content={metaDescription} />
-      <meta property="twitter:url" content={canonicalUrl} />
-      <meta property="twitter:site" content="@Marszy_Official" />
+      <meta property="twitter:description" content={excerpt} />
 
-      {/* SEO : PWA realted */}
-      <meta name="application-name" content={Site} />
-      <meta name="apple-mobile-web-app-title" content={Site} />
-      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-
-      {/* 这里的图标路径假设你有，如果没有可以删掉 */}
-      {/* <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" /> */}
-      {/* <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" /> */}
-      {/* <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" /> */}
-
-      {/* SEO : RSS */}
+      <link rel="canonical" href={canonicalUrl} />
       <link rel="feed" href="/feed.xml" type="application/rss+xml" title={Site} />
     </>
   )
