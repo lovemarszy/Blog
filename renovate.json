@@ -2,23 +2,24 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", ":disableDependencyDashboard"],
   "enabledManagers": ["npm"],
-  "schedule": ["before 8am on Sunday"],
   "timezone": "Asia/Shanghai",
+  "schedule": ["before 8am on Sunday"], 
+  
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": [],      
+    "groupName": null    
+  },
+
   "packageRules": [
     {
-      "description": "将所有非 Major 更新合并为一个 PR，减少噪音",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
-    },
-    {
-      "description": "⚠️ 关键保护：禁止自动升级 Next.js 和 Nextra，防止博客挂掉",
-      "matchPackageNames": ["next", "react", "react-dom", "nextra", "nextra-theme-blog"],
-      "enabled": false
     }
   ],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "prConcurrentLimit": 2,
-  "prHourlyLimit": 2
+  "prConcurrentLimit": 5, 
+  "prHourlyLimit": 0      
 }
