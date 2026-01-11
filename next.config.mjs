@@ -19,6 +19,10 @@ const securityHeaders = [
 export default withNextra({
   reactStrictMode: true,
   cleanDistDir: true,
+
+  // ✅ 修复 1：添加 turbopack 配置，静默与 webpack 插件的冲突
+  turbopack: {},
+
   images: {
     // ✅ 优化：使用新版配置，开启 Vercel 图片优化
     remotePatterns: [
@@ -29,13 +33,13 @@ export default withNextra({
       },
     ],
   },
-  eslint: {
-    // 忽略构建时的 Lint 错误，防止部署失败
-    ignoreDuringBuilds: true,
-  },
+
+  // ✅ 修复 2：彻底删除了原本会导致 Next.js 16 报错的 eslint 字段
+
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },
+
   async redirects() {
     return [
       {
