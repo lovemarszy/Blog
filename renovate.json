@@ -3,12 +3,12 @@
   "extends": ["config:base", ":disableDependencyDashboard"],
   "enabledManagers": ["npm"],
   "timezone": "Asia/Shanghai",
-  "schedule": ["before 8am on Sunday"], 
-  
+  "schedule": ["before 8am on Sunday"],
+
   "vulnerabilityAlerts": {
     "enabled": true,
-    "schedule": [],      
-    "groupName": null    
+    "schedule": [],
+    "groupName": null
   },
 
   "packageRules": [
@@ -16,10 +16,14 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
+    },
+    {
+      "matchPackageNames": ["nextra", "nextra-theme-blog"],
+      "allowedVersions": "<3.0.0"
     }
   ],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "prConcurrentLimit": 5, 
-  "prHourlyLimit": 0      
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 0
 }
