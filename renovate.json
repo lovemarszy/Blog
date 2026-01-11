@@ -1,25 +1,39 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "extends": ["config:base"],
   "enabledManagers": ["npm"],
   "timezone": "Asia/Shanghai",
-  "schedule": ["before 8am on Sunday"], 
-  
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "schedule": [],      
-    "groupName": null    
-  },
+  "schedule": ["before 8am on Sunday"],
 
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
+    },
+    // 🛡️ 禁止升级 Nextra。锁定在 v2，不接受 v3 或 v4
+    {
+      "matchPackageNames": ["nextra", "nextra-theme-blog"],
+      "allowedVersions": "<3.0.0"
+    },
+    // 🛡️ 禁止升级 Tailwind CSS。锁定在 v3，不接受 v4
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/typography", "postcss", "autoprefixer"],
+      "allowedVersions": "<4.0.0"
+    },
+    // 🛡️ 禁止升级 Next.js。锁定在 v14，不接受 v15 或 v16
+    {
+      "matchPackageNames": ["next"],
+      "allowedVersions": "<15.0.0"
+    },
+    // 🛡️ 禁止升级 React。锁定在 v18，防止兼容性崩溃
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "allowedVersions": "<19.0.0"
     }
   ],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "prConcurrentLimit": 5, 
-  "prHourlyLimit": 0      
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 0
 }
