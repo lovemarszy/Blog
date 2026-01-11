@@ -5,25 +5,28 @@
   "timezone": "Asia/Shanghai",
   "schedule": ["before 8am on Sunday"],
 
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "schedule": [],
-    "groupName": null
-  },
-
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
+    // ✅ 关键：继续锁定 Nextra 在 v2
     {
       "matchPackageNames": ["nextra", "nextra-theme-blog"],
       "allowedVersions": "<3.0.0"
+    },
+    // ✅ 关键：锁定 React 在 v18
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "allowedVersions": "<19.0.0"
+    },
+    // ✅ 允许 Tailwind 4 生态系统正常更新
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/postcss", "@tailwindcss/typography"],
+      "groupName": "Tailwind CSS v4"
     }
   ],
-  "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "prConcurrentLimit": 5,
-  "prHourlyLimit": 0
+  "prConcurrentLimit": 5
 }

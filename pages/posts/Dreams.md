@@ -4,7 +4,6 @@ date: 2023/4/27
 description: '做过的一些奇妙的梦'
 tag: 奇思妙想
 author: Marszy
-image: https://image.loveur.life/fengmian.png
 ---
 
 ⁣⁣⁣⁣ ⁣⁣⁣⁣ ⁣⁣
