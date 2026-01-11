@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@config '../tailwind.config.ts';
+
+/* ✅ 修复：在 v4 中定义自定义 max-width 变体的标准写法 */
+/* 这将修复构建时出现的 Unexpected token ParenthesisBlock 警告 */
+@custom-variant ss (@media (max-width: 480px));
 
 @layer base {
   body {
@@ -27,6 +31,7 @@
     font-variation-settings: 'wght' 600;
   }
   article {
+    /* ✅ 变体 ss 现在会正确生成 @media (max-width: 480px) */
     @apply ss:pb-16 ss:pt-8;
   }
   p,
@@ -45,7 +50,8 @@
   a {
     text-underline-position: from-font;
     text-decoration-skip-ink: all;
-    @apply font-medium underline decoration-dec-light decoration-from-font transition-opacity hover:opacity-70 dark:decoration-dec-dark !important;
+    /* ✅ 严格遵守 v4 语法：! 必须修饰工具类本身，且位于变体冒号之后 */
+    @apply !decoration-dec-light dark:!decoration-dec-dark !font-medium !underline !decoration-from-font !transition-opacity hover:!opacity-70;
   }
   a[data-footnote-ref] {
     text-decoration: none !important;
@@ -86,7 +92,7 @@
 }
 .post-item {
   display: none;
-} /* 如果列表消失，删除此行 */
+}
 
 /* Article Style */
 .nx-container {
@@ -135,8 +141,7 @@ article.prose pre {
   display: table;
 }
 
-/* ✅ 关键：强制显示并美化文章底部的标签容器 */
-/* 这会让文章底部的标签可见，但样式会跟随上面的 a 标签默认样式（带下划线），保持风格统一 */
+/* 强制显示并美化文章底部的标签容器 */
 .nx-mt-12 .nx-block.nx-text-gray-500 {
   display: block !important;
   opacity: 1 !important;
