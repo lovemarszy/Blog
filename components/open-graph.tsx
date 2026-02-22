@@ -1,4 +1,6 @@
+// components/open-graph.tsx
 import Link from 'next/link'
+import { signOgUrl } from '../lib/og-signer' // ✅ 引入签名工具
 
 export function OG({
   image,
@@ -14,9 +16,14 @@ export function OG({
   const Site = `Marszy's Blog`
   const apiBase = 'https://og.loveur.life/api/og'
 
-  // ✅ 核心逻辑：构建动态生成的封面 URL
-  // 我们将标题、站点名和描述传给 API。如果传入了 image 路径，则将其作为背景。
-  const generatedImage = `${apiBase}?title=${encodeURIComponent(title)}&site=${encodeURIComponent(Site)}&excerpt=${encodeURIComponent(desc)}${image ? `&image=${encodeURIComponent(image)}` : ''}`
+  // ✅ 核心修改：使用 URL 对象并进行签名，确保卡片图片不报 403
+  const ogUrl = new URL(apiBase)
+  ogUrl.searchParams.set('title', title)
+  ogUrl.searchParams.set('site', Site)
+  ogUrl.searchParams.set('excerpt', desc)
+  if (image) ogUrl.searchParams.set('image', image)
+
+  const generatedImage = signOgUrl(ogUrl)
 
   return (
     <Link
@@ -31,12 +38,9 @@ export function OG({
         textDecoration: 'none',
         color: 'currentColor',
         userSelect: 'none',
-        margin: '1.5rem 0', // 增加上下间距，让卡片在文章中更美观
+        margin: '1.5rem 0',
       }}
     >
-      {/* 这里改用了标准的 <img> 标签。
-        因为 API 返回的是远程图片，使用 <img> 可以避免去修改 next.config.js 的繁琐配置。
-      */}
       <img
         src={generatedImage}
         style={{

@@ -1,4 +1,6 @@
+// components/custom-head.tsx
 import { useRouter } from 'next/router'
+import { signOgUrl } from '../lib/og-signer' // ✅ 引入签名工具函数
 
 const Head = ({ meta }: { meta: Record<string, any> }) => {
   const Site = `Marszy's Blog`
@@ -7,7 +9,6 @@ const Head = ({ meta }: { meta: Record<string, any> }) => {
 
   // 1. 对应你文章 Frontmatter 的数据抓取
   const title = meta.title || 'Untitled'
-  // 描述：对应你的 description 字段
   const excerpt = meta.description || ''
   const author = meta.author || 'Marszy'
   const tag = meta.tag || ''
@@ -25,13 +26,15 @@ const Head = ({ meta }: { meta: Record<string, any> }) => {
   if (tag) params.set('tag', tag)
   if (date) params.set('date', date)
 
-  // ✅ 核心改进：如果文章有 image 字段，将其传给 OGIS 作为背景图
+  // 如果文章有 image 字段，将其传给 OGIS 作为背景图
   if (meta.image) {
     params.set('image', meta.image)
   }
 
-  // 最终生成的封面链接
-  const ogImageUrl = `${apiBase}?${params.toString()}`
+  // ✅ 核心改进：构建 URL 对象并进行签名
+  // 这样生成的链接会带有 &sig=xxxx，从而通过 OGIS 的安全校验
+  const rawUrl = new URL(`${apiBase}?${params.toString()}`)
+  const ogImageUrl = signOgUrl(rawUrl)
 
   // 3. 页面元数据
   const currentTitle = meta.title === `About` ? Site : `${title} - ${Site}`
