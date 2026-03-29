@@ -49,13 +49,12 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "#components/*": ["components/*"],
-      "#images/*": ["public/images/*"],
-      "#photography/*": ["public/images/photography/*"],
-      "#commission/*": ["components/commission/*"],
-      "#data/*": ["data/*"]
+      "#components/*": ["./components/*"],
+      "#images/*": ["./public/images/*"],
+      "#photography/*": ["./public/images/photography/*"],
+      "#commission/*": ["./components/commission/*"],
+      "#data/*": ["./data/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
