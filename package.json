@@ -13,10 +13,10 @@
     "@giscus/react": "^3.1.0",
     "autoprefixer": "^10.4.23",
     "gray-matter": "^4.0.3",
-    "next": "14.2.35",
+    "next": "^14.2.35",
     "next-sitemap": "^4.2.3",
-    "nextra": "2.13.4",
-    "nextra-theme-blog": "2.13.4",
+    "nextra": "2.x",
+    "nextra-theme-blog": "2.x",
     "postcss": "^8.5.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -52,5 +52,22 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "overrides": {
+      "cross-spawn": ">=6.0.6",
+      "minimatch": ">=3.1.4",
+      "@typescript-eslint/typescript-estree>minimatch": ">=9.0.7",
+      "flatted": ">=3.4.2",
+      "picomatch": ">=2.3.2 <3.0.0 || >=4.0.4",
+      "tinyglobby>picomatch": ">=4.0.4",
+      "@next/eslint-plugin-next>picomatch": ">=4.0.4",
+      "lodash-es": ">=4.17.23",
+      "dompurify": ">=3.3.2",
+      "brace-expansion": ">=5.0.5",
+      "yaml": ">=2.8.3",
+      "diff": ">=5.2.2",
+      "next-mdx-remote": ">=6.0.0"
+    }
+  }
 }
