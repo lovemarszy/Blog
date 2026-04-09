@@ -55,7 +55,7 @@
   "packageManager": "pnpm@10.33.0",
   "pnpm": {
     "overrides": {
-      "cross-spawn": ">=6.0.6",
+      "cross-spawn": ">=7.0.6",
       "minimatch": ">=3.1.5",
       "@typescript-eslint/typescript-estree>minimatch": ">=10.2.5",
       "flatted": ">=3.4.2",
