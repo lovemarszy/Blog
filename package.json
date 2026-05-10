@@ -52,7 +52,7 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@10.33.4",
+  "packageManager": "pnpm@11.0.9",
   "pnpm": {
     "overrides": {
       "cross-spawn": ">=7.0.6",
