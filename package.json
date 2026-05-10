@@ -54,6 +54,10 @@
   },
   "packageManager": "pnpm@11.0.9",
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ],
     "overrides": {
       "cross-spawn": ">=7.0.6",
       "minimatch": ">=10.2.5",
