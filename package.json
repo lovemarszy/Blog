@@ -52,26 +52,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "unrs-resolver"
-    ],
-    "overrides": {
-      "cross-spawn": ">=7.0.6",
-      "minimatch": ">=10.2.5",
-      "@typescript-eslint/typescript-estree>minimatch": ">=10.2.5",
-      "flatted": ">=3.4.2",
-      "picomatch": ">=2.3.2 <3.0.0 || >=4.0.4",
-      "tinyglobby>picomatch": ">=4.0.4",
-      "@next/eslint-plugin-next>picomatch": ">=4.0.4",
-      "lodash-es": ">=4.18.1",
-      "dompurify": ">=3.4.3",
-      "brace-expansion": ">=5.0.6",
-      "yaml": ">=2.9.0",
-      "diff": ">=9.0.0",
-      "next-mdx-remote": ">=6.0.0"
-    }
-  }
+  "packageManager": "pnpm@11.1.2"
 }

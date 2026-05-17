@@ -1,0 +1,26 @@
+# pnpm-workspace.yaml
+
+# 1. 显式声明当前单项目根目录为工作区范围
+packages:
+  - "."
+
+# 2. 声明允许执行构建脚本的依赖（解决 ERR_PNPM_IGNORED_BUILDS 报错）
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+
+# 3. 依赖版本重写规则（带有特殊符号的键名已严格加上双引号，防止 YAML 报错）
+overrides:
+  cross-spawn: ">=7.0.6"
+  minimatch: ">=10.2.5"
+  "@typescript-eslint/typescript-estree>minimatch": ">=10.2.5"
+  flatted: ">=3.4.2"
+  picomatch: ">=2.3.2 <3.0.0 || >=4.0.4"
+  "tinyglobby>picomatch": ">=4.0.4"
+  "@next/eslint-plugin-next>picomatch": ">=4.0.4"
+  lodash-es: ">=4.18.1"
+  dompurify: ">=3.4.3"
+  brace-expansion: ">=5.0.6"
+  yaml: ">=2.9.0"
+  diff: ">=9.0.0"
+  next-mdx-remote: ">=6.0.0"
