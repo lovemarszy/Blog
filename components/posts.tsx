@@ -32,7 +32,7 @@ const BlogIndex = () => {
   return sortedPages.map((page: Page) => {
     const frontMatter = page.frontMatter || {}
     const title = page.meta?.title || frontMatter.title || page.name
-    const date = new Date(frontMatter.date || '').toLocaleDateString(undefined, {
+    const date = new Date(frontMatter.date || '').toLocaleDateString('zh-CN', {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',

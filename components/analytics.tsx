@@ -5,12 +5,7 @@ const Analytics = () => {
     return null
   }
 
-  return (
-    <Script
-      strategy="afterInteractive"
-      data-domain="blog.loveur.life"
-    />
-  )
+  return <Script strategy="afterInteractive" data-domain="blog.loveur.life" />
 }
 
 export default Analytics

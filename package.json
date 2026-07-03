@@ -7,13 +7,16 @@
     "build": "node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "validate:posts": "node ./scripts/validate-posts.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm validate:posts",
     "prepare": "husky"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
     "autoprefixer": "^10.4.23",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.35",
+    "next": "14.2.35",
     "next-sitemap": "^4.2.3",
     "nextra": "2.13.4",
     "nextra-theme-blog": "2.13.4",
@@ -26,15 +29,15 @@
     "tailwindcss": "^3.4.19"
   },
   "devDependencies": {
-    "@next/env": "^16.2.9",
+    "@next/env": "14.2.35",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^24.13.2",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
-    "eslint": "^10.5.0",
-    "eslint-config-next": "16.2.9",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.35",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
@@ -52,5 +55,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@11.9.0"
+  "packageManager": "pnpm@11.4.0"
 }

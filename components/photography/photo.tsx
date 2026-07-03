@@ -26,7 +26,9 @@ const Photo = ({ Title }: Props) => {
         return (
           <Image
             key={number}
-            src={require(`public/images/photography/${PublishDate}_${titleLowerCase}/${number}.jpg`)}
+            src={require(
+              `public/images/photography/${PublishDate}_${titleLowerCase}/${number}.jpg`,
+            )}
             alt={`Marszy ©️ ${Year}`}
             quality={95}
             placeholder="blur"
