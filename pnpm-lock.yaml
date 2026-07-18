@@ -40,10 +40,10 @@ importers:
         version: 4.2.3(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra:
         specifier: 2.13.4
-        version: 2.13.4(@types/react@18.3.31)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.13.4(@types/react@19.2.17)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nextra-theme-blog:
         specifier: 2.13.4
-        version: 2.13.4(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(@types/react@18.3.31)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.13.4(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(@types/react@19.2.17)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       postcss:
         specifier: ^8.5.6
         version: 8.5.14
@@ -76,11 +76,11 @@ importers:
         specifier: ^24.13.3
         version: 24.13.3
       '@types/react':
-        specifier: ^18.3.18
-        version: 18.3.31
+        specifier: ^19.2.17
+        version: 19.2.17
       '@types/react-dom':
-        specifier: ^18.3.5
-        version: 18.3.7(@types/react@18.3.31)
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.17)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.63.0
         version: 8.63.0(@typescript-eslint/parser@8.63.0(eslint@8.57.1)(typescript@6.0.3))(eslint@8.57.1)(typescript@6.0.3)
@@ -579,6 +579,10 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
+  '@pkgjs/parseargs@0.11.0':
+    resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
+    engines: {node: '>=14'}
+
   '@pkgr/core@0.3.6':
     resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -668,16 +672,10 @@ packages:
   '@types/node@24.13.3':
     resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
 
-  '@types/prop-types@15.7.15':
-    resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
-
-  '@types/react-dom@18.3.7':
-    resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
+  '@types/react-dom@19.2.3':
+    resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
-      '@types/react': ^18.0.0
-
-  '@types/react@18.3.31':
-    resolution: {integrity: sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw==}
+      '@types/react': ^19.2.0
 
   '@types/react@19.2.17':
     resolution: {integrity: sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw==}
@@ -3829,10 +3827,10 @@ snapshots:
       '@types/react': 19.2.17
       react: 18.3.1
 
-  '@mdx-js/react@3.1.1(@types/react@18.3.31)(react@18.3.1)':
+  '@mdx-js/react@3.1.1(@types/react@19.2.17)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.31
+      '@types/react': 19.2.17
       react: 18.3.1
 
   '@napi-rs/simple-git-android-arm-eabi@0.1.22':
@@ -3954,6 +3952,9 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
+  '@pkgjs/parseargs@0.11.0':
+    optional: true
+
   '@pkgr/core@0.3.6': {}
 
   '@rtsao/scc@1.1.0': {}
@@ -4048,16 +4049,9 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/prop-types@15.7.15': {}
-
-  '@types/react-dom@18.3.7(@types/react@18.3.31)':
+  '@types/react-dom@19.2.3(@types/react@19.2.17)':
     dependencies:
-      '@types/react': 18.3.31
-
-  '@types/react@18.3.31':
-    dependencies:
-      '@types/prop-types': 15.7.15
-      csstype: 3.2.3
+      '@types/react': 19.2.17
 
   '@types/react@19.2.17':
     dependencies:
@@ -5741,6 +5735,8 @@ snapshots:
   jackspeak@2.3.6:
     dependencies:
       '@isaacs/cliui': 8.0.2
+    optionalDependencies:
+      '@pkgjs/parseargs': 0.11.0
 
   jiti@1.21.7: {}
 
@@ -6675,11 +6671,11 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-mdx-remote@6.0.0(@types/react@18.3.31)(react@18.3.1):
+  next-mdx-remote@6.0.0(@types/react@19.2.17)(react@18.3.1):
     dependencies:
       '@babel/code-frame': 7.29.7
       '@mdx-js/mdx': 3.1.1
-      '@mdx-js/react': 3.1.1(@types/react@18.3.31)(react@18.3.1)
+      '@mdx-js/react': 3.1.1(@types/react@19.2.17)(react@18.3.1)
       react: 18.3.1
       unist-util-remove: 4.0.0
       unist-util-visit: 5.1.0
@@ -6728,15 +6724,15 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-blog@2.13.4(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(@types/react@18.3.31)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra-theme-blog@2.13.4(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(@types/react@19.2.17)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       next: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.2.1(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 2.13.4(@types/react@18.3.31)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra: 2.13.4(@types/react@19.2.17)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  nextra@2.13.4(@types/react@18.3.31)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra@2.13.4(@types/react@19.2.17)(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mdx-js/mdx': 2.3.0
@@ -6751,7 +6747,7 @@ snapshots:
       katex: 0.16.47
       lodash.get: 4.4.2
       next: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      next-mdx-remote: 6.0.0(@types/react@18.3.31)(react@18.3.1)
+      next-mdx-remote: 6.0.0(@types/react@19.2.17)(react@18.3.1)
       p-limit: 3.1.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
