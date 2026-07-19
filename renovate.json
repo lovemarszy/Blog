@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "enabledManagers": ["npm"],
   "timezone": "Asia/Shanghai",
   "schedule": ["before 8am on Sunday"],
@@ -11,29 +11,33 @@
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
-    // 🛡️ 禁止升级 Nextra。锁定在 v2，不接受 v3 或 v4
     {
       "matchPackageNames": ["nextra", "nextra-theme-blog"],
       "allowedVersions": "<3.0.0"
     },
-    // 🛡️ 禁止升级 Tailwind CSS。锁定在 v3，不接受 v4
     {
-      "matchPackageNames": ["tailwindcss", "@tailwindcss/typography", "postcss", "autoprefixer"],
+      "matchPackageNames": ["tailwindcss"],
       "allowedVersions": "<4.0.0"
     },
-    // 🛡️ 禁止升级 Next.js。锁定在 v14，不接受 v15 或 v16
     {
-      "matchPackageNames": ["next"],
+      "matchPackageNames": ["next", "@next/env", "eslint-config-next"],
       "allowedVersions": "<15.0.0"
     },
-    // 🛡️ 禁止升级 React。锁定在 v18，防止兼容性崩溃
     {
-      "matchPackageNames": ["react", "react-dom"],
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
       "allowedVersions": "<19.0.0"
+    },
+    {
+      "matchPackageNames": ["eslint"],
+      "allowedVersions": "<9.0.0"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.0.0"
     }
   ],
   "rangeStrategy": "bump",
   "postUpdateOptions": ["pnpmDedupe"],
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 10,
   "prHourlyLimit": 0
 }
