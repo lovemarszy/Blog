@@ -20,7 +20,7 @@
     "next-sitemap": "^4.2.3",
     "nextra": "2.13.4",
     "nextra-theme-blog": "2.13.4",
-    "postcss": "^8.5.22",
+    "postcss": "^8.5.25",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^5.7.0",
@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
-    "lint-staged": "^17.1.1",
+    "lint-staged": "^17.3.0",
     "marked": "^18.0.7",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
@@ -55,5 +55,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@11.16.0"
+  "packageManager": "pnpm@11.19.0"
 }
