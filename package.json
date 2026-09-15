@@ -14,13 +14,13 @@
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "autoprefixer": "^10.5.4",
+    "autoprefixer": "^10.5.6",
     "gray-matter": "^4.0.3",
     "next": "14.2.35",
     "next-sitemap": "^4.2.3",
     "nextra": "2.13.4",
     "nextra-theme-blog": "2.13.4",
-    "postcss": "^8.5.26",
+    "postcss": "^8.5.28",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^5.7.0",
@@ -31,18 +31,18 @@
   "devDependencies": {
     "@next/env": "14.2.35",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^24.13.3",
+    "@types/node": "^24.13.4",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "@typescript-eslint/eslint-plugin": "^8.68.0",
-    "@typescript-eslint/parser": "^8.68.0",
+    "@typescript-eslint/eslint-plugin": "^8.70.0",
+    "@typescript-eslint/parser": "^8.70.0",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.35",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
-    "lint-staged": "^17.4.1",
-    "marked": "^18.0.11",
+    "lint-staged": "^17.5.1",
+    "marked": "^18.0.12",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3"
@@ -55,5 +55,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@11.24.0"
+  "packageManager": "pnpm@11.26.0"
 }
