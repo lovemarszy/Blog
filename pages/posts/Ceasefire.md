@@ -2,7 +2,7 @@
 title: 权力的死亡螺旋：无声的急救室
 date: 2026/01/03
 description: 这世界的终极问题或许是：**人到底是不是人
-tag: 坐下聊聊
+tag: 人间账本
 author: Marszy
 image: 'https://image.loveur.life/Ceasefire.jpg'
 ---
