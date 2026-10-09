@@ -3,8 +3,6 @@ import path from 'path'
 import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'pages/posts')
-
-// 辅助函数：获取所有标签（兼容 tag 字符串和 tags 数组）
 export const getTags = (frontMatter: any) => {
   const tags = new Set<string>()
   if (Array.isArray(frontMatter.tags)) {
@@ -14,8 +12,6 @@ export const getTags = (frontMatter: any) => {
   }
   return Array.from(tags)
 }
-
-// 获取所有文章数据
 export const getAllPosts = () => {
   const fileNames = fs.readdirSync(postsDirectory)
 
@@ -41,8 +37,6 @@ export const getAllPosts = () => {
       return new Date(b.date).getTime() - new Date(a.date).getTime()
     })
 }
-
-// 获取所有唯一的标签列表
 export const getAllTags = () => {
   const posts = getAllPosts()
   const tags = new Set<string>()

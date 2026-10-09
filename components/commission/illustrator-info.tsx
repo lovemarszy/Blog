@@ -1,14 +1,8 @@
 import Link from 'next/link'
 import { CommissionInfoProps } from './types'
-
-// Create a functional component named IllustratorInfo which takes in props of type CommissionInfoProps
 const IllustratorInfo = ({ PublishDate, Creator, Twitter, Skeb, Pixiv }: CommissionInfoProps) => {
-  // Format the date to YYYY/MM/DD
-
   const formattedDate =
     PublishDate.slice(0, 4) + '/' + PublishDate.slice(4, 6) + '/' + PublishDate.slice(6, 8)
-
-  // Create a reusable function to generate links with proper styling
   const createLink = (url: string, text: string) => {
     return url ? (
       <>
@@ -19,11 +13,7 @@ const IllustratorInfo = ({ PublishDate, Creator, Twitter, Skeb, Pixiv }: Commiss
       </>
     ) : null
   }
-
-  // Check if the input is null or empty
   const isAllLinksEmpty = !Twitter && !Skeb && !Pixiv
-
-  // Render illustrator information in a grid layout using Tailwind CSS and the Transition component from HeadlessUI. This includes the formattedDate state, Creator prop (or '-' if there is no Creator), and links to the illustrator's social media pages (if they exist).
   return (
     <div className="flex flex-auto font-mono text-sm ss:text-xs">
       <span className="">{formattedDate}</span>
@@ -46,6 +36,4 @@ const IllustratorInfo = ({ PublishDate, Creator, Twitter, Skeb, Pixiv }: Commiss
     </div>
   )
 }
-
-// Export the IllustratorInfo component as the default export of this module.
 export default IllustratorInfo

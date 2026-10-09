@@ -4,8 +4,6 @@ import { priorityList } from '#data/PriorityList'
 import Image from 'next/image'
 import IllustratorInfo from './illustrator-info'
 import type { CommissionInfoProps } from './types'
-
-// utility function to process and sort the data
 function prepareData(
   commissions: CommissionInfoProps[],
   priorities: { [creator: string]: number },
@@ -57,8 +55,6 @@ function prepareData(
 
 const Featured = () => {
   const commissionsValue = Object.values(commissionData) as CommissionInfoProps[]
-
-  // use useMemo to avoid re-calculating the data on every render
   const flattenedCommissions = useMemo(
     () => prepareData(commissionsValue, priorityList),
     [commissionsValue],
@@ -74,7 +70,6 @@ const Featured = () => {
             quality={95}
             placeholder="blur"
           />
-          {/* Passing the commission object as props to the IllustratorInfo component */}
           <IllustratorInfo {...commission} />
         </div>
       ))}

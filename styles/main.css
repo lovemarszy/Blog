@@ -158,8 +158,6 @@ article.prose pre {
   display: table;
 }
 
-/* ✅ 关键：强制显示并美化文章底部的标签容器 */
-/* 这会让文章底部的标签可见，但样式会跟随上面的 a 标签默认样式（带下划线），保持风格统一 */
 ._mt-12 ._block._text-gray-500 {
   display: block !important;
   opacity: 1 !important;

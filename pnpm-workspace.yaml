@@ -1,12 +1,10 @@
 packages:
   - "."
 
-# 2. 声明允许执行构建脚本的依赖（解决 ERR_PNPM_IGNORED_BUILDS 报错）
 allowBuilds:
   sharp: true
   unrs-resolver: true
 
-# 3. 依赖版本重写规则（带有特殊符号的键名已严格加上双引号，防止 YAML 报错）
 overrides:
   cross-spawn: ">=7.0.6"
   minimatch: ">=10.2.6"
@@ -21,9 +19,9 @@ overrides:
   yaml: ">=2.9.1"
   diff: ">=9.0.0"
   next-mdx-remote: ">=6.0.0"
-  # Nextra 3's MathJax chain selects vulnerable 0.9.10 without this patch floor.
+  # MathJax 间接依赖的安全版本下限。
   "@xmldom/xmldom": ">=0.9.12 <0.10.0"
-  # Security fixes within the existing dependency major versions.
+  # 保持现有主版本的安全补丁。
   "gray-matter>js-yaml": ">=3.15.2 <4.0.0"
   "next>postcss": ">=8.5.28 <9.0.0"
   source-map-js: ">=1.2.2 <2.0.0"

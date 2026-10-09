@@ -21,7 +21,6 @@ const config: NextraBlogTheme = {
         </Link>
       ),
   },
-  // 保持使用 CustomHead，具体的 OGIS 逻辑将写在 CustomHead 组件里
   head: CustomHead,
   dateFormatter: (date: Date) =>
     date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),

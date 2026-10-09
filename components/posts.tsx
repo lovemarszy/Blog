@@ -16,12 +16,11 @@ interface Page {
 const BlogIndex = () => {
   const pages = getPagesUnderRoute('/posts')
 
-  // Read the page map during rendering, after Nextra initializes its context.
+  // 等 Nextra 初始化后读取页面目录。
   const sortedPages = pages.sort((a: Page, b: Page) => {
     const dateA = new Date(a.frontMatter?.date || '').getTime()
     const dateB = new Date(b.frontMatter?.date || '').getTime()
 
-    // Check if dateA or dateB is NaN (invalid date)
     if (isNaN(dateA) || isNaN(dateB)) {
       throw new Error('Invalid date format in frontMatter')
     }

@@ -20,7 +20,6 @@ export default withNextra({
   reactStrictMode: true,
   cleanDistDir: true,
   images: {
-    // ✅ 优化：使用新版配置，开启 Vercel 图片优化
     remotePatterns: [
       {
         protocol: 'https',
@@ -30,7 +29,6 @@ export default withNextra({
     ],
   },
   eslint: {
-    // 忽略构建时的 Lint 错误，防止部署失败
     ignoreDuringBuilds: true,
   },
   async headers() {

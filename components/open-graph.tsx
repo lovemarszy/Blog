@@ -1,6 +1,5 @@
-// components/open-graph.tsx
 import Link from 'next/link'
-import { signOgUrl } from '../lib/og-signer' // ✅ 引入签名工具
+import { signOgUrl } from '../lib/og-signer'
 
 export function OG({
   image,
@@ -15,8 +14,6 @@ export function OG({
 }) {
   const Site = `Marszy's Blog`
   const apiBase = 'https://og.loveur.life/api/og'
-
-  // ✅ 核心修改：使用 URL 对象并进行签名，确保卡片图片不报 403
   const ogUrl = new URL(apiBase)
   ogUrl.searchParams.set('title', title)
   ogUrl.searchParams.set('site', Site)

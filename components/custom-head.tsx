@@ -1,22 +1,15 @@
-// components/custom-head.tsx
 import { useRouter } from 'next/router'
-import { signOgUrl } from '../lib/og-signer' // ✅ 引入签名工具函数
+import { signOgUrl } from '../lib/og-signer'
 
 const Head = ({ meta }: { meta: Record<string, any> }) => {
   const Site = `Marszy's Blog`
   const apiBase = 'https://og.loveur.life/api/og'
   const router = useRouter()
-
-  // 1. 对应你文章 Frontmatter 的数据抓取
   const title = meta.title || 'Untitled'
   const excerpt = meta.description || ''
   const author = meta.author || 'Marszy'
   const tag = meta.tag || ''
-
-  // 日期处理：将 2026/01/03 转换为 API 喜欢的 2026-01-03 格式
   const date = meta.date ? new Date(meta.date).toISOString().split('T')[0] : ''
-
-  // 2. 构建动态 URL 参数
   const params = new URLSearchParams()
   params.set('title', title)
   params.set('site', Site)
@@ -25,18 +18,11 @@ const Head = ({ meta }: { meta: Record<string, any> }) => {
   if (author) params.set('author', author)
   if (tag) params.set('tag', tag)
   if (date) params.set('date', date)
-
-  // 如果文章有 image 字段，将其传给 OGIS 作为背景图
   if (meta.image) {
     params.set('image', meta.image)
   }
-
-  // ✅ 核心改进：构建 URL 对象并进行签名
-  // 这样生成的链接会带有 &sig=xxxx，从而通过 OGIS 的安全校验
   const rawUrl = new URL(`${apiBase}?${params.toString()}`)
   const ogImageUrl = signOgUrl(rawUrl)
-
-  // 3. 页面元数据
   const currentTitle = meta.title === `About` ? Site : `${title} - ${Site}`
   const canonicalUrl = (
     `https://blog.loveur.life` + (router.asPath === '/' ? '' : router.asPath)
