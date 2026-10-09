@@ -8,6 +8,19 @@ import { MdEmail } from 'react-icons/md'
 const YEAR = new Date().getFullYear()
 
 const config: NextraBlogTheme = {
+  components: {
+    a: ({ href = '', children, ...props }) =>
+      /https?:\/\//.test(href) ? (
+        <a href={href} target="_blank" rel="noreferrer" {...props}>
+          {children}
+          <span className="_sr-only _select-none"> (opens in a new tab)</span>
+        </a>
+      ) : (
+        <Link href={href} {...props}>
+          {children}
+        </Link>
+      ),
+  },
   // 保持使用 CustomHead，具体的 OGIS 逻辑将写在 CustomHead 组件里
   head: CustomHead,
   dateFormatter: (date: Date) =>

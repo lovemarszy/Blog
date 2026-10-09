@@ -21,3 +21,9 @@ overrides:
   yaml: ">=2.9.1"
   diff: ">=9.0.0"
   next-mdx-remote: ">=6.0.0"
+  # Nextra 3's MathJax chain selects vulnerable 0.9.10 without this patch floor.
+  "@xmldom/xmldom": ">=0.9.12 <0.10.0"
+  # Security fixes within the existing dependency major versions.
+  "gray-matter>js-yaml": ">=3.15.2 <4.0.0"
+  "next>postcss": ">=8.5.28 <9.0.0"
+  source-map-js: ">=1.2.2 <2.0.0"

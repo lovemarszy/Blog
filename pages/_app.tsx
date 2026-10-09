@@ -1,10 +1,9 @@
-{/* CSS */}
+import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import '../styles/main.css'
 
-{/* Analytics */}
 import CustomAnalytics from '#components/analytics'
 
-{/* Custom Font */}
 import localFont from 'next/font/local'
 
 export const inter = localFont({
@@ -25,9 +24,13 @@ export const inter = localFont({
   ],
 })
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter()
+  const pageClass =
+    pathname === '/posts' ? 'blog-post-index' : pathname === '/tags/[tag]' ? 'blog-tag-page' : ''
+
   return (
-    <main className={`${inter.variable} font-sans`}>
+    <main className={`${inter.variable} font-sans ${pageClass}`}>
       <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
       <Component {...pageProps} />
       <CustomAnalytics />

@@ -39,6 +39,6 @@ author: Marszy
 
 早上想写这篇文章的时候一直在想我是不是无趣的人，但洋洋洒洒写完之后，心思也变得通透起来，文字真的能给予我力量。
 
-![](/Users/marszy/Library/Application%20Support/marktext/images/2026-09-15-23-29-55-image.png)
+<img src="/Users/marszy/Library/Application%20Support/marktext/images/2026-09-15-23-29-55-image.png" alt="" />
 
 <br />
