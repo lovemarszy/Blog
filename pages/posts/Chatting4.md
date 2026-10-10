@@ -184,7 +184,7 @@ image:
 
 > 2024.09.26
 >
-> <img title="" src="https://blog.loveur.life/images/posts/chatting4-20240926.png" alt="" width="252"><img title="" src="https://image.loveur.life/20261010225322058.webp" alt="20261010225322058" width="211">
+> <img src="https://image.loveur.life/20261010233624073.webp" title="" alt="20261010233624073" width="350">
 >
 > 男人，什么罐头我说
 
@@ -420,7 +420,7 @@ image:
 
 > 2024.12.13
 >
-> <img src="https://blog.loveur.life/images/posts/chatting4-20241213.png" title="" alt="" width="378">
+> <img title="" src="https://image.loveur.life/20261010233712745.webp" alt="20261010233712745" width="293">
 >
 > 这沙避风了🙂‍↕️
 
