@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
-const postsDir = join(process.cwd(), 'pages/posts')
+const postsDir = join(process.cwd(), 'content/posts')
 
 const isValidDate = value => {
   if (!value) return false
@@ -23,7 +23,7 @@ const validate = async () => {
   for (const file of files) {
     const content = await fs.readFile(join(postsDir, file), 'utf8')
     const { data } = matter(content)
-    const prefix = `pages/posts/${file}`
+    const prefix = `content/posts/${file}`
 
     if (typeof data.title !== 'string' || data.title.trim() === '') {
       errors.push(`${prefix}: missing title`)

@@ -16,7 +16,7 @@ async function generate() {
       language: 'zh-CN',
     })
 
-    const dirPath = join('./pages/posts')
+    const dirPath = join('./content/posts')
     const files = await fs.readdir(dirPath)
 
     const posts = await Promise.all(

@@ -5,4 +5,5 @@ module.exports = {
   arrowParens: 'avoid',
   printWidth: 100,
   plugins: ['prettier-plugin-tailwindcss'],
+  tailwindStylesheet: './styles/main.css',
 }
