@@ -1,6 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant ss (@media (max-width: 480px));
+
+@theme inline {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --color-p-light: #313233;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-zinc-900: #18181b;
+  --color-dec-light: #a5adb1;
+  --color-dec-dark: #5e6365;
+  --color-inactive-nav-light: #7b808a;
+  --color-inactive-nav-dark: #66686d;
+  --color-back-light: #fcfcfc;
+  --color-back-dark: #18181a;
+  --color-selected: #95a5ac40;
+  --tracking-custom: 0.005em;
+  --min-height-dynamic: 100dvh;
+}
 
 @layer base {
   body {
@@ -27,7 +54,7 @@
     font-variation-settings: 'wght' 600;
   }
   article {
-    @apply ss:pb-16 ss:pt-8;
+    @apply ss:pt-8 ss:pb-16;
   }
   p,
   li {
@@ -45,10 +72,10 @@
   a {
     text-underline-position: from-font;
     text-decoration-skip-ink: all;
-    @apply font-medium underline decoration-dec-light decoration-from-font transition-opacity hover:opacity-70 dark:decoration-dec-dark !important;
+    @apply font-medium underline decoration-dec-light decoration-from-font transition-opacity hover:opacity-70 dark:decoration-dec-dark;
   }
   a[data-footnote-ref] {
-    text-decoration: none !important;
+    text-decoration: none;
     padding: 0.2rem;
   }
 }
@@ -57,15 +84,6 @@
   body {
     @apply antialiased;
   }
-}
-
-/* Link Behavior */
-._mb-8 ._flex a {
-  @apply text-gray-600 dark:text-gray-100;
-}
-._mb-8 ._flex ._cursor-default {
-  word-break: break-word;
-  @apply text-inactive-nav-light dark:text-inactive-nav-dark;
 }
 
 /* Post List */
@@ -84,83 +102,145 @@
     'tnum' 1,
     'calt' 1;
 }
-/* Nextra 3 removed .post-item from its automatic list. Keep our custom list only. */
-.blog-post-index article > div:has(> h2._not-prose) {
-  display: none;
-}
-
-/* Nextra 2 swallowed the JSX h1 and applied prose spacing to JSX h3 elements. */
-.blog-tag-page article > h1:not(:first-child) {
-  display: none;
-}
 .blog-tag-page h3 {
   line-height: 1.6;
   margin-bottom: 0.6em;
 }
 
 /* Article Style */
-._container {
+.blog-shell > article {
+  font-family: inherit;
+  --tw-prose-body: #374151;
+  --tw-prose-headings: #111827;
+  --tw-prose-links: #111827;
+  --tw-prose-bold: #111827;
+  --tw-prose-quotes: #111827;
+  --tw-prose-quote-borders: #e5e7eb;
+  --tw-prose-code: #111827;
+  width: calc(100% - 2rem);
+  padding: 5rem 0 8rem;
+  margin-inline: auto;
   line-height: 1.6;
   word-spacing: -0.04em;
   max-width: 40rem;
 }
-/* Preserve the Nextra 2 palette instead of the new theme's pure white headings. */
-.dark ._prose {
-  --tw-prose-invert-headings: #f3f4f6;
-  --tw-prose-invert-links: #f3f4f6;
-  --tw-prose-invert-bold: #f3f4f6;
-  --tw-prose-invert-quotes: #f3f4f6;
-  --tw-prose-invert-quote-borders: #1f2937;
-  --tw-prose-invert-code: #f3f4f6;
-  --tw-prose-invert-pre-code: #e5e7eb;
-  --tw-prose-invert-pre-bg: #1f2937;
-  --tw-prose-invert-th-borders: #374151;
-  --tw-prose-invert-td-borders: #1f2937;
-}
-.dark .md\:_prose {
-  font-variation-settings: 'wght' 400;
+.dark .blog-shell > article {
+  --tw-prose-body: #d1d5db;
+  --tw-prose-headings: #f3f4f6;
+  --tw-prose-links: #f3f4f6;
+  --tw-prose-bold: #f3f4f6;
+  --tw-prose-quotes: #f3f4f6;
+  --tw-prose-quote-borders: #1f2937;
+  --tw-prose-code: #f3f4f6;
+  --tw-prose-pre-code: #e5e7eb;
+  --tw-prose-pre-bg: #1f2937;
+  --tw-prose-th-borders: #374151;
+  --tw-prose-td-borders: #1f2937;
 }
 
 /* Code blocks */
-.md\:_prose code::before,
-.md\:_prose code::after {
+.blog-shell > article code::before,
+.blog-shell > article code::after {
   content: none;
 }
-.md\:_prose code {
+.blog-shell > article code {
   border: none;
   padding: 2px 4px;
   font-weight: 500;
   font-variation-settings: 'wght' 500;
 }
-article.prose pre code {
+.blog-shell > article pre code {
   display: inline-block;
   padding: 0;
   color: #545454;
   font-size: 0.9em;
 }
-.dark article.prose pre code {
+.dark .blog-shell > article pre code {
   color: #e9e9e9;
 }
-article.prose pre {
-  background-color: #f7f7f7 !important;
+.blog-shell > article pre {
+  background-color: #f7f7f7;
   letter-spacing: 0;
 }
-.dark article.prose pre {
-  background-color: #1f1f1f !important;
+.dark .blog-shell > article pre {
+  background-color: #1f1f1f;
 }
-.dark .dark\:prose-invert ul > li::before {
+.dark .blog-shell > article ul > li::before {
   background-color: #4b4f50;
 }
-._border {
-  border-width: 0px;
-}
-._block {
-  display: table;
-}
 
-._mt-12 ._block._text-gray-500 {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  margin-top: 2rem;
+.blog-shell {
+  font-feature-settings:
+    'cpsp' 1,
+    'dlig' 1,
+    'cv01' 1,
+    'cv02',
+    'cv03' 1,
+    'cv04' 1;
+}
+.blog-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.blog-navigation a {
+  color: #4b5563;
+}
+.blog-navigation [aria-current] {
+  color: #7b808a;
+  word-break: break-word;
+}
+.dark .blog-navigation a {
+  color: #f3f4f6;
+}
+.dark .blog-navigation [aria-current] {
+  color: #66686d;
+}
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.blog-post-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  flex-grow: 1;
+  color: #4b5563;
+}
+.dark .blog-post-details {
+  color: #9ca3af;
+}
+.blog-tag {
+  user-select: none;
+  border-radius: 0.375rem;
+  background: #e5e7eb;
+  padding-inline: 0.25rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  transition:
+    color 150ms,
+    background-color 150ms;
+}
+.blog-tag:hover {
+  background: #d1d5db;
+  color: #6b7280;
+}
+.dark .blog-tag {
+  background: #4b5563;
+  color: #d1d5db;
+}
+.dark .blog-tag:hover {
+  background: #374151;
+  color: #e5e7eb;
+}
+@media (max-width: 480px) {
+  .blog-shell > article {
+    padding-block: 2rem 4rem;
+  }
 }

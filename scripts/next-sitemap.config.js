@@ -6,5 +6,4 @@ module.exports = {
   generateIndexSitemap: true,
   changefreq: 'daily',
   priority: 1,
-  exclude: ['/photography/*'],
 }

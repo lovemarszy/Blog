@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint app components lib mdx-components.tsx",
     "typecheck": "tsc --noEmit",
     "validate:posts": "node ./scripts/validate-posts.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm validate:posts",
@@ -14,26 +14,25 @@
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "autoprefixer": "^10.6.1",
     "gray-matter": "^4.0.3",
     "next": "15.5.27",
     "next-sitemap": "^4.2.3",
-    "nextra": "3.3.1",
-    "nextra-theme-blog": "3.3.1",
+    "nextra": "4.6.1",
+    "nextra-theme-blog": "4.6.1",
     "postcss": "^8.5.29",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-icons": "^5.7.0",
     "rss": "^1.2.2",
     "sharp": "^0.35.5",
-    "tailwindcss": "^3.4.19"
+    "tailwindcss": "4.3.3"
   },
   "devDependencies": {
     "@next/env": "15.5.27",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^24.19.1",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@typescript-eslint/eslint-plugin": "^8.71.1",
     "@typescript-eslint/parser": "^8.71.1",
     "eslint": "8.57.1",
@@ -45,7 +44,8 @@
     "marked": "^18.1.0",
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "@tailwindcss/postcss": "4.3.3"
   },
   "lint-staged": {
     "*.{js,mjs,cjs,jsx,ts,tsx}": [

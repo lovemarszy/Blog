@@ -1,8 +1,9 @@
+import 'server-only'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const postsDirectory = path.join(process.cwd(), 'pages/posts')
+const postsDirectory = path.join(process.cwd(), 'content/posts')
 export const getTags = (frontMatter: any) => {
   const tags = new Set<string>()
   if (Array.isArray(frontMatter.tags)) {

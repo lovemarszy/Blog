@@ -1,0 +1,78 @@
+---
+type: page
+title: Tags
+date: 2023-02-06
+---
+
+export const TagList = () => {
+  // name 须与文章标签一致。
+  const tags = [
+    {
+      name: "坐下聊聊",
+      desc: "我的一些思考和想法"
+    },
+    {
+      name: "奇思妙想",
+      desc: "一个一个梦飞出了天窗"
+    },
+    {
+      name: "小玩具",
+      desc: "我买过的一些有意思的小玩意"
+    },
+    {
+      name: "书影音",
+      desc: "多看，多读，多听"
+    },
+    {
+      name: "人间账本",
+      desc: "这迷人又危险的世界啊"
+    },
+  ]
+
+return (
+
+<div className="flex flex-col">
+{tags.map((tag, index) => (
+<div 
+          key={tag.name} 
+          className="border-b border-gray-200 dark:border-gray-800 last:border-0"
+        >
+<br />
+<br />
+
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+            <a
+              href={`/tags/${tag.name}`}
+              className="text-lg font-medium text-gray-900 dark:text-gray-100 underline decoration-2 underline-offset-4 decoration-gray-300 hover:decoration-gray-600 transition-all shrink-0"
+            >
+              {tag.name}
+            </a>
+
+            <span className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+              {tag.desc}
+            </span>
+          </div>
+
+          {index !== tags.length - 1 && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+
+)
+}
+
+
+<br />
+
+这里是我所有标签的索引。
+
+<br />
+
+<hr className="mb-0 mt-8 border-gray-200 dark:border-gray-800" />
+
+<TagList />
