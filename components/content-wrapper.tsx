@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Navigation from './navigation'
 import Footer from './footer'
 import type { ContentMetadata } from '../lib/content-metadata'
+import { parseContentDate } from '../lib/content-date.mjs'
 
 export default function ContentWrapper({
   children,
@@ -13,6 +14,7 @@ export default function ContentWrapper({
 }) {
   const isPost = metadata.type !== 'page' && metadata.type !== 'posts'
   const tags = metadata.tags || []
+  const date = parseContentDate(metadata.date)
   return (
     <>
       <h1>{metadata.title}</h1>
@@ -20,10 +22,11 @@ export default function ContentWrapper({
         <div className="blog-post-meta not-prose">
           <div className="blog-post-details">
             {metadata.author}
-            {metadata.author && metadata.date && ','}
-            {metadata.date && (
-              <time dateTime={new Date(metadata.date).toISOString()}>
-                {new Date(metadata.date).toLocaleDateString('en-US', {
+            {metadata.author && date && ','}
+            {date && (
+              <time dateTime={date.toISOString()}>
+                {date.toLocaleDateString('en-US', {
+                  timeZone: 'UTC',
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',

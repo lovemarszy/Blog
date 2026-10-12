@@ -4,30 +4,11 @@ title: Tags
 date: 2023-02-06
 ---
 
+import { getAllTags } from '../lib/posts'
+import { getTagIndex } from '../lib/tag-index.mjs'
+
 export const TagList = () => {
-  // name 须与文章标签一致。
-  const tags = [
-    {
-      name: "坐下聊聊",
-      desc: "我的一些思考和想法"
-    },
-    {
-      name: "奇思妙想",
-      desc: "一个一个梦飞出了天窗"
-    },
-    {
-      name: "小玩具",
-      desc: "我买过的一些有意思的小玩意"
-    },
-    {
-      name: "书影音",
-      desc: "多看，多读，多听"
-    },
-    {
-      name: "人间账本",
-      desc: "这迷人又危险的世界啊"
-    },
-  ]
+  const tags = getTagIndex(getAllTags())
 
 return (
 

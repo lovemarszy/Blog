@@ -2,6 +2,7 @@ import 'server-only'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { parseContentDate } from './content-date.mjs'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 export const getTags = (frontMatter: any) => {
@@ -24,12 +25,12 @@ export const getAllPosts = () => {
       const { data } = matter(fileContents)
 
       return {
+        ...data,
         slug: fileName.replace(/\.mdx?$/, ''),
         title: data.title || fileName,
-        date: data.date ? new Date(data.date).toISOString() : null,
+        date: parseContentDate(data.date)?.toISOString() || null,
         description: data.description || '',
         tags: getTags(data),
-        ...data,
       }
     })
     .sort((a, b) => {

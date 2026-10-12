@@ -4,12 +4,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
+    "build": "pnpm check && node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",
-    "lint": "eslint app components lib mdx-components.tsx",
-    "typecheck": "tsc --noEmit",
+    "lint": "eslint app components lib scripts mdx-components.tsx --ext .js,.mjs,.ts,.tsx",
+    "typecheck": "next typegen && tsc --noEmit",
     "validate:posts": "node ./scripts/validate-posts.mjs",
-    "check": "pnpm typecheck && pnpm lint && pnpm validate:posts",
+    "test:dates": "node --test scripts/content-date.test.mjs",
+    "test:tags": "node --test scripts/tag-index.test.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm validate:posts && pnpm test:dates && pnpm test:tags",
     "prepare": "husky"
   },
   "dependencies": {

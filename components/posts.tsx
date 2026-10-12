@@ -6,6 +6,7 @@ const BlogIndex = () => {
   return sortedPages.map(page => {
     const title = page.title
     const date = new Date(page.date || '').toLocaleDateString('zh-CN', {
+      timeZone: 'UTC',
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',

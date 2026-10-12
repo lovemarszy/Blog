@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { Layout } from 'nextra-theme-blog'
 import { Head } from 'nextra/components'
 import localFont from 'next/font/local'
-import Analytics from '../components/analytics'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 
@@ -21,7 +20,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-back-light tracking-custom antialiased selection:bg-selected dark:bg-back-dark ss:min-h-dynamic">
         <main className={`${inter.variable} blog-shell font-sans`}>
           <Layout>{children}</Layout>
-          <Analytics />
         </main>
       </body>
     </html>

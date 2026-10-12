@@ -48,6 +48,7 @@ export default async function TagPage({ params }: Props) {
                 <div className="mb-2 text-sm text-gray-500">
                   {post.date &&
                     new Date(post.date).toLocaleDateString('zh-CN', {
+                      timeZone: 'UTC',
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',

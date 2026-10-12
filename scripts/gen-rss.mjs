@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 import { join } from 'path'
 import RSS from 'rss'
 import { marked } from 'marked'
+import { parseContentDate } from '../lib/content-date.mjs'
 
 const msgError = '\x1b[0m[\x1b[31m ERROR \x1b[0m]'
 const msgDone = '\x1b[0m[\x1b[32m DONE \x1b[0m]'
@@ -25,8 +26,11 @@ async function generate() {
         .map(async fileName => {
           const content = await fs.readFile(join(dirPath, fileName))
           const frontmatter = matter(content)
+          const date = parseContentDate(frontmatter.data.date)
+          if (!date) throw new Error(`${fileName}: missing or invalid date`)
           return {
             ...frontmatter.data,
+            date,
             content: frontmatter.content,
             slug: fileName.replace(/\.mdx?/, ''),
           }

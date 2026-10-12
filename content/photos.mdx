@@ -14,8 +14,9 @@ import Image from 'next/image'
 <Image
   src="https://image.loveur.life/Molly2.jpg"
   alt="Photo"
-  width={1125}
-  height={750}
+  width={2048}
+  height={2048}
+  sizes="(max-width: 42rem) calc(100vw - 2rem), 40rem"
   priority
   className="next-image"
 />
@@ -23,9 +24,10 @@ import Image from 'next/image'
 <Image
   src="https://image.loveur.life/Molly1.jpg"
   alt="Photo"
-  width={1125}
-  height={750}
-  priority
+  width={1536}
+  height={2048}
+  sizes="(max-width: 42rem) calc(100vw - 2rem), 40rem"
+  loading="lazy"
   className="next-image"
 />
 

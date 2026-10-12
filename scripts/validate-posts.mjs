@@ -1,14 +1,9 @@
 import { promises as fs } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { parseContentDate } from '../lib/content-date.mjs'
 
 const postsDir = join(process.cwd(), 'content/posts')
-
-const isValidDate = value => {
-  if (!value) return false
-  const date = new Date(value)
-  return !Number.isNaN(date.getTime())
-}
 
 const getTags = data => {
   if (Array.isArray(data.tags)) return data.tags
@@ -29,7 +24,7 @@ const validate = async () => {
       errors.push(`${prefix}: missing title`)
     }
 
-    if (!isValidDate(data.date)) {
+    if (!parseContentDate(data.date)) {
       errors.push(`${prefix}: missing or invalid date`)
     }
 
