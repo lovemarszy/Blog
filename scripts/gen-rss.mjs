@@ -1,9 +1,9 @@
 import { promises as fs } from 'fs'
-import matter from 'gray-matter'
 import { join } from 'path'
 import RSS from 'rss'
 import { marked } from 'marked'
 import { parseContentDate } from '../lib/content-date.mjs'
+import { parseFrontMatter } from '../lib/frontmatter.mjs'
 
 const msgError = '\x1b[0m[\x1b[31m ERROR \x1b[0m]'
 const msgDone = '\x1b[0m[\x1b[32m DONE \x1b[0m]'
@@ -24,8 +24,8 @@ async function generate() {
       files
         .filter(fileName => !fileName.startsWith('index.') && /\.(md|mdx)$/.test(fileName))
         .map(async fileName => {
-          const content = await fs.readFile(join(dirPath, fileName))
-          const frontmatter = matter(content)
+          const content = await fs.readFile(join(dirPath, fileName), 'utf8')
+          const frontmatter = parseFrontMatter(content, fileName)
           const date = parseContentDate(frontmatter.data.date)
           if (!date) throw new Error(`${fileName}: missing or invalid date`)
           return {

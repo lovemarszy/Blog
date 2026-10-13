@@ -4,20 +4,20 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm check && node ./scripts/gen-rss.mjs && next build && next-sitemap --config ./scripts/next-sitemap.config.js",
+    "build": "pnpm check && node ./scripts/gen-rss.mjs && next build --turbopack && next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",
-    "lint": "eslint app components lib scripts mdx-components.tsx --ext .js,.mjs,.ts,.tsx",
+    "lint": "eslint app components lib scripts mdx-components.tsx",
     "typecheck": "next typegen && tsc --noEmit",
     "validate:posts": "node ./scripts/validate-posts.mjs",
     "test:dates": "node --test scripts/content-date.test.mjs",
     "test:tags": "node --test scripts/tag-index.test.mjs",
-    "check": "pnpm typecheck && pnpm lint && pnpm validate:posts && pnpm test:dates && pnpm test:tags",
+    "test:frontmatter": "node --test scripts/frontmatter.test.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm validate:posts && pnpm test:dates && pnpm test:tags && pnpm test:frontmatter",
     "prepare": "husky"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "gray-matter": "^4.0.3",
-    "next": "15.5.27",
+    "next": "16.4.0",
     "next-sitemap": "^4.2.3",
     "nextra": "4.6.1",
     "nextra-theme-blog": "4.6.1",
@@ -27,35 +27,28 @@
     "react-icons": "^5.7.0",
     "rss": "^1.2.2",
     "sharp": "^0.35.5",
-    "tailwindcss": "4.3.3"
+    "tailwindcss": "4.3.3",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "@next/env": "15.5.27",
+    "@next/env": "16.4.0",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^24.19.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@typescript-eslint/eslint-plugin": "^8.71.1",
     "@typescript-eslint/parser": "^8.71.1",
-    "eslint": "8.57.1",
-    "eslint-config-next": "15.5.27",
+    "eslint": "10.12.0",
+    "eslint-config-next": "16.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
-    "lint-staged": "^17.6.0",
     "marked": "^18.1.0",
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3",
-    "@tailwindcss/postcss": "4.3.3"
-  },
-  "lint-staged": {
-    "*.{js,mjs,cjs,jsx,ts,tsx}": [
-      "prettier --write"
-    ],
-    "*.{json,css,md,mdx}": [
-      "prettier --write"
-    ]
+    "@tailwindcss/postcss": "4.3.3",
+    "@eslint/js": "^10.0.1"
   },
   "packageManager": "pnpm@12.10.1"
 }

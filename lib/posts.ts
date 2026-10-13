@@ -1,14 +1,16 @@
 import 'server-only'
 import fs from 'fs'
 import path from 'path'
-import matter from 'gray-matter'
+import { parseFrontMatter } from './frontmatter.mjs'
 import { parseContentDate } from './content-date.mjs'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
-export const getTags = (frontMatter: any) => {
+export const getTags = (frontMatter: Record<string, unknown>) => {
   const tags = new Set<string>()
   if (Array.isArray(frontMatter.tags)) {
-    frontMatter.tags.forEach((t: string) => tags.add(t))
+    frontMatter.tags.forEach(t => {
+      if (typeof t === 'string') tags.add(t)
+    })
   } else if (typeof frontMatter.tag === 'string') {
     tags.add(frontMatter.tag)
   }
@@ -22,14 +24,15 @@ export const getAllPosts = () => {
     .map(fileName => {
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
-      const { data } = matter(fileContents)
+      const { data } = parseFrontMatter(fileContents, fullPath)
+      const date = typeof data.date === 'string' || data.date instanceof Date ? data.date : null
 
       return {
         ...data,
         slug: fileName.replace(/\.mdx?$/, ''),
-        title: data.title || fileName,
-        date: parseContentDate(data.date)?.toISOString() || null,
-        description: data.description || '',
+        title: typeof data.title === 'string' && data.title ? data.title : fileName,
+        date: parseContentDate(date)?.toISOString() || null,
+        description: typeof data.description === 'string' ? data.description : '',
         tags: getTags(data),
       }
     })

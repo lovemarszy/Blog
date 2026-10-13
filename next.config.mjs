@@ -26,9 +26,6 @@ export default withNextra({
       },
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },

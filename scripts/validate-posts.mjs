@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs'
 import { join } from 'path'
-import matter from 'gray-matter'
+import { parseFrontMatter } from '../lib/frontmatter.mjs'
 import { parseContentDate } from '../lib/content-date.mjs'
 
 const postsDir = join(process.cwd(), 'content/posts')
@@ -17,8 +17,8 @@ const validate = async () => {
 
   for (const file of files) {
     const content = await fs.readFile(join(postsDir, file), 'utf8')
-    const { data } = matter(content)
     const prefix = `content/posts/${file}`
+    const { data } = parseFrontMatter(content, prefix)
 
     if (typeof data.title !== 'string' || data.title.trim() === '') {
       errors.push(`${prefix}: missing title`)
